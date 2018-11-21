@@ -136,6 +136,7 @@ export class USMapFlightsComponent implements OnInit {
                 break;
               }
           }   
+          temp = temp.sort(function(a,b){return d3.ascending(a.AirLine,b.AirLine)})
           changeAxis(temp)
           reloadBars(temp)
           
@@ -682,7 +683,7 @@ d3.select("#sortDesc")
       //console.log(slicedDataset)
   
       dataset = slicedDataset
-      slicedDataset.sort(function (a, b) { return d3.ascending(a.AirLine, b.AirLine); });
+      //slicedDataset = slicedDataset.sort(function (a, b) { return d3.ascending(a.AirLine, b.AirLine); });
       var bars = svg.selectAll(".bar").remove().exit().data(slicedDataset,function(d:any){
         return d.Delay;
       })
