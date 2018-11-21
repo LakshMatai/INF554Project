@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import {topology,feature} from 'topojson';
 import * as topojson from 'topojson';
 import { Topology } from 'topojson-specification';
+
 // import * as world from 'world-atlas';
 
 @Component({
@@ -20,7 +21,7 @@ export class USMapFlightsComponent implements OnInit {
     var color = d3.scaleOrdinal(d3.schemeCategory10);
     var svg = d3.select("#barChart");
     var margin = 160
-    var width = +svg.attr("width")-margin+40
+    var width = +svg.attr("width")-margin+60
     var height = +svg.attr("height")-margin
 
     var xScale = d3.scaleBand().range([0,width]).padding(0.2) ;
@@ -67,7 +68,7 @@ export class USMapFlightsComponent implements OnInit {
         circle.append("circle")
         .attr("cx",function(d){return projection([d.lng,d.lat])[0]})
         .attr("cy",function(d){return projection([d.lng,d.lat])[1]})
-        .attr("r",10)
+        .attr("r",5)
         .style("opacity",0.7)
         .attr("class","bubble")
 
@@ -108,13 +109,14 @@ export class USMapFlightsComponent implements OnInit {
           //   }
             
           // })  
+          d3.select("#barTitle").html(d.city)
           var temp=[]
           for(var i in slicedDataset){
             // console.log(slicedDataset[i]["Year"])
               if (slicedDataset[i]["Year"]==d.city){
                 //console.log(slicedDataset[i])
                 for (var j in slicedDataset[i]){
-                  if(j=="Year"){
+                  if((j=="Year") || (slicedDataset[i][j] == 0)){
                     continue;
                   }
                   //console.log(j)
@@ -148,23 +150,43 @@ export class USMapFlightsComponent implements OnInit {
       var group = svg.append("g").attr("transform","translate(80,100)");
       xScale.domain(data.map(function(d){return d.AirLine;}));
       yScale.domain([0,d3.max(data,function(d){return +d.Delay})])
-      //console.log(xScale.domain())
-      
 
 
-      // group.append("g")
-      // .attr('class', 'grid')
-      // .call(d3.axisLeft()
-      // .scale(yScale)
-      // .tickSize(-width, 0, 0)
-      // .tickFormat(''));
-    
+
+      // function wrap(text, width) {
+      //   text.each(function() {
+      //     var text = d3.select(this),
+      //         words = text.text().split(/\s+/).reverse(),
+      //         word,
+      //         line = [],
+      //         lineNumber = 0,
+      //         lineHeight = 1.1, // ems
+      //         y = text.attr("y"),
+      //         dy = parseFloat(text.attr("dy")),
+      //         tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+      //     while (word = words.pop()) {
+      //       line.push(word);
+      //       tspan.text(line.join(" "));
+      //       var node: SVGTSpanElement = <SVGTSpanElement>tspan.node()
+      //       var hasGreaterWidth = node.getComputedTextLength()>width
+      //       if (hasGreaterWidth) {
+      //         line.pop();
+      //         tspan.text(line.join(" "));
+      //         line = [word];
+      //         tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      //       }
+      //     }
+      //   });
+      // }
+
       group.append("g")
       .attr("id","x-axis")
       .attr("transform", "translate(0," + height+ ")")
       .call(d3.axisBottom(xScale))
+      //.selectAll(".tick text").call(wrap,xScale.bandwidth())
+      //.selectAll("text").attr("transform","rotate(-45) translate(-40,0)")
       .append("text")
-      .text("Airline").attr("x",400).attr("y",40).attr("fill","#000"); 
+      .text("Airlines").attr("x",400).attr("y",40).attr("fill","#000"); 
 
       group.append("g")
       .attr("id","y-axis")
@@ -211,11 +233,17 @@ export class USMapFlightsComponent implements OnInit {
 
     
     function changeAxis(temp){
+
+      
+
+
       var delay = function(d,i){return i * 25}
       var transition = d3.transition().duration(750).delay(delay);
       xScale.domain(temp.map(function(d){return d.AirLine}))
       yScale.domain([0,d3.max(temp,function(d:any){return +d.Delay})])
       transition.select("#x-axis").call(<any>d3.axisBottom(xScale))
+      //.selectAll(".tick text").call(wrap,xScale.bandwidth())
+      //.selectAll("text").attr("transform","rotate(-45) translate(-40,0)")
       transition.select("#y-axis").call(<any>d3.axisLeft(yScale))
     }
     
@@ -232,6 +260,8 @@ export class USMapFlightsComponent implements OnInit {
         return d.Delay;
       })
     
+      
+      
       var delay = function(d,i){
         return i*25;
       }
