@@ -1,0 +1,9 @@
+.view{
+    display: block;
+}
+.blockview{
+    display: none;
+}
+#bord{
+    border: 1px solid black;
+}

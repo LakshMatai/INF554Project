@@ -24,7 +24,9 @@
               "src/us.json",
               "src/cities.csv",
               "src/LineChart.csv",
-              "src/demo.csv"
+              "src/demo.csv",
+              "src/data",
+              "src/data.json"
             ],
             "styles": [
               "src/styles.css",
@@ -32,6 +34,7 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
