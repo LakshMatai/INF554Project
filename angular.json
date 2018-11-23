@@ -26,7 +26,11 @@
               "src/LineChart.csv",
               "src/demo.csv",
               "src/data",
-              "src/data.json"
+              "src/data.json",
+              "src/bipartite.html",
+              "src/biPartiteFlight.js",
+              "src/2015-2014_airline_delay_causes.csv",
+              "src/home.jpg"
             ],
             "styles": [
               "src/styles.css",

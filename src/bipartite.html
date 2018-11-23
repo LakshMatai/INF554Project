@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+	<meta charset="utf-8">
+	<title>FlightTime</title>
+	<base href="/">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="http://d3js.org/d3.v3.min.js"></script>
  	<script src="http://underscorejs.org/underscore.js" type="text/javascript"></script>
 	<script src="biPartiteFlight.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
  	
 	<style>
+		div.fixed{
+			position:fixed;
+		}
+		img{
+			opacity: 0.2;
+		}
+		img:hover{
+			opacity: 1;
+		}
 		body{
 			width:1200px;
 		}
@@ -85,16 +100,7 @@
 	    	return data;
 	    } else return group;
     }
- 	
- 	/**
- 	 *  Get all the key values for each item in groups
- 	 *  Format returned: {	"year":["2003","2004"...],
- 	 *						"month":["1","2",...,"12"],
- 	 *						"carrier":["AA", "AQ", "AS", ...n],
- 	 *						"airport":["JFK", "ABQ", "ANC", ...],
- 	 *                      "performance":["ontime","delayed","cancelled"]
- 	 *					}
- 	 **/
+
  	function allKeys(bigdata, groups) {
  		var groupKeys = {}
  		groups.forEach(function(g) {
@@ -159,8 +165,6 @@
 			return tiptext;
     	};
     
-    
-
  		/** Set up data grouping **/
 		debugger;
  		var keysPerGroup = allKeys(bigdata, groupColumns.concat(keyColumns));
@@ -174,7 +178,7 @@
 		var yr = keysPerGroup["year"][0];
  		var groupedByMonth = groupedData[yr];
 
-		var month = 	keysPerGroup["month"][0];
+		var month = keysPerGroup["month"][0];
 		var dataByDate = groupedByMonth[month];
 		var data = [ bP.partDataForID1(dataByDate, keysPerGroup), 
 					 bP.partDataForID2(dataByDate, keysPerGroup)];
@@ -206,7 +210,7 @@
 
 					 
 		/** Draw SVG **/				
-		var width = 1200, height = 610, margin ={b:0, t:40, l:220, r:50};
+		var width = 1200, height = 610, margin ={b:0, t:60, l:220, r:200};
 		
 		
 		var svg = d3.select("body")
@@ -251,16 +255,16 @@
  	
 
 </script>
-
-<title>Flight Performance</title>
 </head>
 
 <body>
-	<br><br>
-		<a href="index.html">GO HOME</a>
-		<br><br><br><br>
+<div class="container">
+	<br>
+	<div class="fixed" style="width:80px;height: 80px"><a href="index.html"><img style="width:60px;height: 60px" src="home.jpg" alt="home"></a></div>
+		<br><br>
 <table>
-<tr><td align="left" class="mainheader" colspan="3">Flight Performance</td>
+<tr><td align="left" class="mainheader" colspan="4">Flight Performance</td>
+	<br>
 <td align="right" class="monthslider" valign="top">
 	<span id="min-time"></span> 
 	<input type="range" min="0" max="19" step="1" value="0" id="slider-month" style="width:300px">
@@ -282,7 +286,7 @@
 	 of a terminal or concourse, re-boarding of aircraft because of security breach, inoperative screening equipment 
 	 and/or long lines in excess of 29 minutes at screening areas.  For more details, see 
 	 <a href='http://www.rita.dot.gov/bts/help/aviation/html/understanding.html'>RITA -Understanding flight delays 
-	 and cancellations.</a> <p/>
+	 and cancellations.</a> </p>
 
 	From January 2014 to August 2015, majority of delays is caused by Late-Arriving Aircraft, followed by NAS and Air Carrier.
 	Extreme weather, which is widely broadcasted, is one of the lowest cause of delay.   Note that there is another category of
@@ -302,8 +306,8 @@
 </td>
 </tr>
 </table>
-
-<script type="text/javascript">
+<br>
+<script type="text/javascript" style="margin:50%;">
 
 
   d3.csv("2015-2014_airline_delay_causes.csv", function(d) {
@@ -328,9 +332,7 @@
         return d;
     }, draw);
 
-
-
 </script>
-
+</div>
 </body>
 </html>
