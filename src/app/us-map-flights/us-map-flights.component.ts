@@ -213,10 +213,10 @@ d3.select("#topFive")
     sliced = dataset.slice(0)
     console.log(dataset)
 
-    sliced.sort(function (a, b) {
-        return d3.descending(+a.Delay, +b.Delay);});
+    var sliced = sliced.sort(function (a, b) {
+        return d3.descending(+a.Delay, +b.Delay);}).slice(0,5)
 
-    sliced.splice(5, 5);
+    //sliced.splice(0, 5);
     console.log(dataset)
     SortMode("#sortAlpha")
     sliced = sliced.sort(function (a, b) {
