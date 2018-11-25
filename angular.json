@@ -32,17 +32,22 @@
               "src/2015-2014_airline_delay_causes.csv",
               "src/home.jpg",
               "src/home_final.png",
-              "src/up_navigation.png"
+              "src/up_navigation.png",
+              "src/css",
+              "src/dataset",
+              "src/img",
+              "src/js",
+              "src/project.html"
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/particlesjs/dist/particles.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/particlesjs/dist/particles.min.js"
               
             ]
           },
