@@ -35,7 +35,7 @@
 }
 
 .clicked {
-    fill: #7a1717;
+    fill: darkred;
     opacity: 1;
     stroke-width: 1px;
     stroke: black;
@@ -46,7 +46,7 @@
 }
 
 #maplegend .swatch {
-    fill: green;
+    fill:cornflowerblue;
 }
 
 .minuspadding {
@@ -88,7 +88,7 @@
 }
 
 .collapsedtitle a {
-    color: grey;
+    color: black;
 }
 
 .nopadding {
@@ -219,21 +219,21 @@ nobutton{
 }
 
 .node--both {
-    fill: #dc6c6f;
+    fill:rgb(91, 91, 172);
 }
 
 .node--target {
-    fill: #68a064
+    fill: green;
 }
 
 .node--source {
-    fill: #ffb51d;
+    fill: red;
 }
 
 .link {
     stroke-width: 0.01rem;
-    stroke: steelblue;
-    stroke-opacity: 0.5;
+    stroke: burlywood;
+    stroke-opacity: 0.4;
     fill: none;
     pointer-events: none;
 }
@@ -246,15 +246,16 @@ nobutton{
 }
 
 .link--both {
-    stroke: #dc6c6f;
+    stroke:rgb(91, 91, 172);
+    stroke-opacity: 0.5;
 }
 
 .link--target {
-    stroke: #68a064;
+    stroke:green;
 }
 
 .link--source {
-    stroke: #ffb51d
+    stroke: red;
 }
 
 #hierarchy .label {
