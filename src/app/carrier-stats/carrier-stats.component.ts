@@ -800,7 +800,7 @@ _self.info="Delta Air Lines, Inc., often referred to simply as Delta, is a major
               width = +svg.attr("width"),
               height = +svg.attr("height"),
               radius = 100,//Math.min(width, height) / 2.5,
-              g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+              g = svg.append("g").attr("transform", "translate(" + width / 1.75 + "," + height / 4 + ")");
             // var color = d3.scaleOrdinal(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "pink", "yellow", "green"]);
             var pie = d3.pie() //pie generator
               .sort(null)
@@ -811,11 +811,11 @@ _self.info="Delta Air Lines, Inc., often referred to simply as Delta, is a major
             var color = d3.scaleOrdinal(d3.schemeCategory10);
             
             var path = d3.arc()
-              .outerRadius(radius - 10)
+              .outerRadius(radius - 20)
               .innerRadius(120); //make != 0 for a donut chart
             
             var label = d3.arc()
-              .outerRadius(radius+30)
+              .outerRadius(radius+100)
               .innerRadius(80);
             
               d3.csv("data/pie_chart.csv", function (d:any) {
@@ -859,7 +859,7 @@ _self.info="Delta Air Lines, Inc., often referred to simply as Delta, is a major
                 })
                 
                 legend3.append('rect')
-                    .attr("x", 500)
+                    .attr("x", 10)
                     .attr("y", 0)
                     .attr("width", 10)
                     .attr("height", 10)
@@ -868,7 +868,7 @@ _self.info="Delta Air Lines, Inc., often referred to simply as Delta, is a major
                 })
                 
                 legend3.append('text')
-                    .attr("x", 520)
+                    .attr("x", 25)
                     .attr("y", 10)
                 //.attr("dy", ".35em")
                 .text(function (d, i) {
