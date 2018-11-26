@@ -50,12 +50,7 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-<<<<<<< HEAD
-              "node_modules/particlesjs/dist/particles.min.js"
-=======
               "node_modules/particlesjs/dist/particles.js"
->>>>>>> eba0c41bc401050371351a0c01608efbdca8d294
-              
             ]
           },
           "configurations": {
