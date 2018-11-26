@@ -1,66 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-	<script src="http://d3js.org/d3.v3.min.js"></script>
- 	<script src="http://underscorejs.org/underscore.js" type="text/javascript"></script>
-	<script src="biPartiteFlight.js"></script>
-	<script src="bipar1.js"></script>
-	<script src="bipar2.js"></script>
- 	
-	<style>
-		body{
-			width:1200px;
-		}
-		svg text{
-			font-size:12px;
-		}
-		rect{
-			shape-rendering:crispEdges;
-		}
-		table {
-			padding: 5px; 
-		}
-		.mainheader{
-			font-size: 30px;
-			font-weight: bold;
-		}
-		
-		.subheader{
-			font-size: 13px;
-			color: grey;
-		}
-		
-		.monthslider{
-		    font-size: 15px;
-			font-weight: bold;
-		}
-
-		div.tooltip {   
-		  position: absolute;           
-		  text-align: center;           
-		  width: auto;                  
-		  height: auto;                
-		  padding: 2px;             
-		  font: 12px sans-serif;        
-		  background: lightsteelblue;   
-		  border: 0px;      
-		  border-radius: 8px;           
-		  pointer-events: none;         
-		}
-</style>
-
-<title>Flight Performance</title>
-</head>
-
+<br>
 <body>
-	<br><br>
-		<a href="index.html">GO HOME</a>
-		<br><br><br><br>
+<div id="bi"></div>
 <table>
 <tr><td align="left" class="mainheader" colspan="3">Flight Performance</td>
 <td align="right" class="monthslider" valign="top">
-	<span id="min-time"></span> 
+  <span id="min-time"></span> 
 	<input type="range" min="0" max="19" step="1" value="0" id="slider-month" style="width:300px">
 	<span id="max-time"></span>
 </td>
@@ -80,8 +24,8 @@
 	 of a terminal or concourse, re-boarding of aircraft because of security breach, inoperative screening equipment 
 	 and/or long lines in excess of 29 minutes at screening areas.  For more details, see 
 	 <a href='http://www.rita.dot.gov/bts/help/aviation/html/understanding.html'>RITA -Understanding flight delays 
-	 and cancellations.</a> <p/>
-
+	 and cancellations.</a>
+    <br><br>
 	From January 2014 to August 2015, majority of delays is caused by Late-Arriving Aircraft, followed by NAS and Air Carrier.
 	Extreme weather, which is widely broadcasted, is one of the lowest cause of delay.   Note that there is another category of
 	weather within NAS that could have been prevented with proper management.  So, it is surprising that 
@@ -90,18 +34,15 @@
 	Aviation Administration.  In another note, among the <a href="https://en.wikipedia.org/wiki/List_of_largest_airlines_in_North_America">
 	4 major airlines in the U.S.</a>, Southwest Airlines (WN) got the lowest performance for 10 months, followed by United Airlines (UA)
 	for 6 months.  On the airport side, inspite of being the <a href="https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States">busiest 
-	airport</a>, Atlanta Airport did not get the lowest performance at all. <p/>
-	
+	airport</a>, Atlanta Airport did not get the lowest performance at all.
+	<br><br>
 	<i>  
 	  Count is in thousands unit. <b>Total flight</b> is the sum of <i>on-time flight</i> and delays (i.e. aircraft, nas, 
 	 weather, late, security), 	cancellations and diversions.  <b>% of Total Flights</b> is the percentage of that 
 	 delay/cancellation/diversion against the total flight for that carrier, airport or overall total flight for that year and month.
-	</i>
+  </i>
+  <br><br>
 </td>
 </tr>
 </table>
-
-
-
 </body>
-</html>

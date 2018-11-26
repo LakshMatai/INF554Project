@@ -286,26 +286,30 @@
 			.text(function(d,i){ return (data.keys[p][i]).toUpperCase();})
 			.attr("text-anchor","start" )
 			.attr("fill", function(d, i) { return d.order==0?highlight:""; })
-			.style("font-weight",function(d) { return p==0?"bold":"normal";});
+			.style("font-weight",function(d) { return p==0?"bold":"normal";})
+			.style("font-size","12");
 
 		mainbar.append("text").attr("class","barvalue")
 			.attr("x", c2[p]).attr("y",function(d){ return d.middle+5;})
 			.text(function(d,i){ return d.tf>0?(d.value / 1000).toFixed(2):"" ;})
 			.attr("fill", function(d, i) { return d.order==0?highlight:""; })
-			.attr("text-anchor","end");
+			.attr("text-anchor","end")
+			.style("font-size","12");
 			
 		mainbar.append("text").attr("class","barpercent")
 			.attr("x", c3[p]).attr("y",function(d){ return d.middle+5;})
 			.text(function(d,i){ return d.tf>0?"( "+Math.round(100*d.percent)+"%)":"" ;})
 			.attr("text-anchor","end")
-			.attr("fill", function(d, i) { return d.order==0?highlight:"grey"; });
+			.attr("fill", function(d, i) { return d.order==0?highlight:"grey"; })
+			.style("font-size","12");
 		
 		
 		mainbar.append("text").attr("class","bartotalflights")
 			.attr("x", c4[p]).attr("y",function(d){ return d.middle+5;})
 			.text(function(d,i){ return d.tf>0?(100*d.percent_of_tf).toFixed(2)+"%":"" ;})
 			.attr("fill", function(d, i) { return d.order==0?highlight:""; })
-			.attr("text-anchor","end");
+			.attr("text-anchor","end")
+			.style("font-size","12");
 
 		/*  
 		 * Draws the colored horizontal bar that is segmented by the number
@@ -342,14 +346,14 @@
 			
 			
 			h.append("text").text(header[d]).attr("x", (c1[d]-5))
-				.attr("y", -5).style("fill","grey").call(wrap,c1[2]);
+				.attr("y", -5).style("fill","grey").style("font-size","12").call(wrap,c1[2]);
 			
 			h.append("text").text("Count").attr("x", (c2[d]-15))
-				.attr("y", -5).style("fill","grey").call(wrap,c2[2]);
+				.attr("y", -5).style("fill","grey").style("font-size","12").call(wrap,c2[2]);
 
 			
 			h.append("text").text(header[3]).attr("x", (c4[d]-35))
-			.attr("y", -5).style("fill","grey").call(wrap,c4[2]);
+			.attr("y", -5).style("fill","grey").style("font-size","12").call(wrap,c4[2]);
 			
 			
 			h.append("line").attr("x1",c1[d]-10).attr("y1", -1)
@@ -567,12 +571,12 @@
 				/* show tooltip  */
 				var tiptext = bP.getTooltipText(d[0], m, k.id);
 
-				bP.tip.transition().style("opacity", .9);      
+				bP.tip.transition().style("opacity", 1);      
 	            bP.tip.html(tiptext)  
 	                .style("left", (d3.event.pageX) + "px")     
-	                .style("top", (d3.event.pageY - 70) + "px");
-
-				
+					.style("top", (d3.event.pageY - 70) + "px")
+					.style("background-color", "lightblue")
+					.style("font-size","12px");	
 			}
 		});
 	}	
@@ -592,7 +596,6 @@
 			selectedBar.select(".bartotalflights").style('font-weight','normal');
 			bP.tip.style("opacity", 0);
 		});		
-	}
-	
+	}	
 	this.bP = bP;
 }();

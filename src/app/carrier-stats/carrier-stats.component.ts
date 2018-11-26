@@ -365,17 +365,225 @@ _self.info="Delta Air Lines, Inc., often referred to simply as Delta, is a major
     _self.website="http://www.mesa-air.com/";
     this.draw();
   }
-
+  
   constructor() { }
 
   ngOnInit() {
+    this.extraline();
   }
+  extraline(){
+    function linechart(data){
+      var citi = ['Chicago',
+        'Atlanta',
+        'New York',
+        'Dallas',
+        'Charlotte',
+        'Denver', 
+        'Houston',
+        'Los Angeles',
+        'Washington',
+        'Phoenix',
+        'San Francisco',
+        'Las Vegas',
+        'Detroit',
+        'Minneapolis',
+        'Boston'];
+      var width = 900;
+      var height = 400;
+      var margin = 40;
+      var duration = 400;
+  
+      var lineOpacity = "100";
+      var lineOpacityHover = "1.0";
+      var otherLinesOpacityHover = "0.1";
+      var lineStroke = "2px";
+      var lineStrokeHover = "4px";
+  
+      var circleOpacity = '100';
+      
+      var circleOpacityOnLineHover = "0.55"
+      var circleRadius = 3;
+      var circleRadiusHover = 6;
+  
+      /* Format Data */
+      // var parseDate = d3.timeParse("%Y");
+      data.forEach(function(d) { 
+      d.values.forEach(function(d) {
+          d.year = +d.year;
+          d.arrdelay = +d.arrdelay;
+          d.depdelay = +d.depdelay;    
+      });
+      });
+      // var tic = Object.keys(data[0].values).length;
+      /* Scale */
+      var xScale = d3.scaleLinear()
+      .domain(d3.extent(data[0].values, d => +d["year"]))
+      .range([0, width-margin]);
+  
+      var yScale = d3.scaleLinear()
+      .domain(d3.extent(data[0].values, d => +d["arrdelay"]))
+      .range([height-margin, 0]);
+  
+      var color = d3.scaleOrdinal(d3.schemeCategory10);
+  
+      /* Add SVG */
+
+      var svg = d3.selectAll("#extra").append("svg")
+      .attr("width", (width+margin + 60)+"px")
+      .attr("height", (height+margin)+"px")
+      .append('g')
+      .attr("transform", `translate(${margin}, ${margin})`);
+
+      
+      /* Add line into SVG */
+      var line = d3.line()
+      .curve(d3.curveCardinal)
+      .x(d => xScale(d["year"]))
+      .y(d => yScale(d["arrdelay"]));
+  
+      let lines = svg.append('g')
+                     .attr('class', 'lines');
+  
+      lines.selectAll('.line-group')
+          .data(data)
+          .enter()
+          .append('g')
+          .attr('class', 'line-group')
+          .on("mouseover", function(d, i:any) {
+            svg.append("text")
+              .attr("class", "title-text")
+              .style("fill", color(i))        
+              .text("")
+              .attr("text-anchor", "middle")
+              .attr("x", (width-margin)/2)
+              .attr("y", 5);
+        })
+      //   .on("mouseout", function(d) {
+      //     svg.select(".title-text").remove();
+      // })
+      .append('path')
+      .attr('class', 'line')  
+      .attr('d', d => line(d["values"]))
+      .style('stroke', (d, i:any) => color(i))
+      .style('opacity', lineOpacity)
+      .style('fill', 'none')
+      .on("mouseover", function(d) {
+          d3.selectAll('.line')
+                      .style('opacity', otherLinesOpacityHover);
+          d3.select(this).transition().duration(200)
+          .style('opacity', lineOpacityHover)
+          .style("stroke-width", lineStrokeHover)
+          .style("cursor", "pointer");    
+      })
+      .on("mouseout", function(d) {
+          d3.selectAll(".line")
+                      .style('opacity', lineOpacity);
+          d3.selectAll('.circle')
+                      .style('opacity', circleOpacity);
+          d3.select(this).transition().duration(200)
+          .style("stroke-width", lineStroke)
+          .style("cursor", "none");
+          d3.selectAll('.legend')
+          .style('opacity', 1);
+      });
+      var path = "M59.79,12.92C62.42,9.4,64,5.75,64,3.15a3.62,3.62,0,0,0-.49-2,1.6,1.6,0,0,0-.29-.37,1.68,1.68,0,0,0-.34-.27,3.56,3.56,0,0,0-2-.51c-2.6,0-6.25,1.58-9.77,4.21-2.84,2.13-5.69,5.12-9.62,9.27L39.34,15.7l-7.62-2.28,0,0a1.71,1.71,0,0,0,0-2.41L30.36,9.61a1.71,1.71,0,0,0-1.21-.5,1.68,1.68,0,0,0-1.21.5l-2.06,2.06-1.09-.33a1.71,1.71,0,0,0-.14-2.25L23.27,7.7a1.71,1.71,0,0,0-1.21-.5,1.67,1.67,0,0,0-1.2.5L19,9.59,11.21,7.27a1.94,1.94,0,0,0-.55-.08,2.05,2.05,0,0,0-1.43.58L6.5,10.5A1.61,1.61,0,0,0,6,11.62,1.56,1.56,0,0,0,6.85,13l16.3,9.11a2.84,2.84,0,0,1,.4.3l4.65,4.65C23.85,31.66,20,36.09,17,40L16.15,41,3.54,39.86H3.32a2.33,2.33,0,0,0-1.56.65L.49,41.76A1.58,1.58,0,0,0,0,42.89a1.55,1.55,0,0,0,.92,1.43l8.87,4.21a2.07,2.07,0,0,1,.34.24l.74.73a5.38,5.38,0,0,0-.35,1.71,2.24,2.24,0,0,0,.62,1.63l0,0h0a2.25,2.25,0,0,0,1.63.61,5.43,5.43,0,0,0,1.69-.35l.75.75a2,2,0,0,1,.23.33l4.2,8.85a1.57,1.57,0,0,0,1.41.93h0a1.58,1.58,0,0,0,1.12-.47l1.3-1.31a2.32,2.32,0,0,0,.62-1.56c0-.07,0-.13,0-.16L23,47.85,24,47c3.86-3,8.3-6.9,12.87-11.24l4.65,4.66a2.49,2.49,0,0,1,.3.4L51,57.13a1.58,1.58,0,0,0,2.54.37l2.74-2.74a2.08,2.08,0,0,0,.56-1.43,2,2,0,0,0-.07-.54L54.41,45l1.89-1.89a1.71,1.71,0,0,0,0-2.41l-1.39-1.38a1.71,1.71,0,0,0-2.25-.14l-.32-1.09,2.06-2.06a1.72,1.72,0,0,0,.5-1.21,1.69,1.69,0,0,0-.5-1.2L53,32.27a1.71,1.71,0,0,0-2.42,0h0L48.3,24.65l2.25-2.14C54.68,18.59,57.67,15.76,59.79,12.92Z"
+      /* Add circles in the line */
+      lines.selectAll("circle-group")
+      .data(data).enter()
+      .append("g")
+      // .style("fill", "#FFF")//(d, i) => color(i))
+      .style("fill", "orange")
+      .selectAll("circle")
+      .data(d => d["values"])
+      .enter()
+      .append("g")
+      // .append("path")
+      // .attr("d",path)
+      .attr("class", "circle")
+      // .attr("r", 4) 
+      .on("mouseover", function(d) {
+          d3.select(this)     
+          .style("cursor", "pointer")
+          .append("text")
+          .attr("class", "text")
+          .html(d["arrdelay"] + 'K')
+          .attr("x", d => xScale(d["year"]))
+          .attr("y", d => yScale(d["arrdelay"]) - 10);
+      })
+  
+      .on("mouseout", function(d) {
+          d3.select(this)
+          .style("cursor", "none")  
+          .transition()
+          .duration(duration)
+          .selectAll(".text").remove();
+      })
+      .append("svg")
+      
+      .attr("x", d => xScale(d["year"]))
+      .attr("y", d => yScale(d["arrdelay"])-5)
+      // .attr("width","80")
+      // .attr("height","80")
+      .append("path")
+      .attr("d",path)
+      .attr("transform","scale(0.25)")
+      .style('opacity', circleOpacity)
+      .on("mouseover", function(d) {
+          d3.select(this)
+              .transition()
+              .duration(duration)
+              // .attr("r", circleRadiusHover);
+              .attr("transform","scale(0.7)");
+          })
+      .on("mouseout", function(d) {
+          d3.select(this) 
+              .transition()
+              .duration(duration)
+              .attr("transform","scale(0.2)");
+              // .attr("r", circleRadius);  
+          });
+
+      /* Add Axis into SVG */
+
+      var myscale1 = d3.scalePoint()
+                      .domain(citi)
+                      .range([0,width-margin]);
+
+      var xAxis = d3.axisBottom(xScale).ticks(5);
+      var yAxis = d3.axisLeft(yScale).ticks(5);
+      var myaxis = d3.axisBottom(myscale1);
+  
+      svg.append("g")
+      .attr("class", "xAxis")
+      .attr("transform", `translate(0, ${height-margin})`)
+      .call(myaxis)
+      .append('text')
+      //.attr("fill", "#000")
+       .text("Airports")
+       .attr("text-anchor", "middle") 
+       .attr("x", width/2)
+      .attr("y", 36)
+      .attr("font-size","12px") 
+      .attr("fill","black");
+  
+      svg.append("g")
+      .attr("class", "yAxis")
+      .call(yAxis)
+      .append('text')
+      .attr("x", -width/10 )
+      .attr("y", -30)
+      .attr("transform", "rotate(-90)")
+      //.attr("fill", "#000")
+      .text("No of Flights(1000k)")
+      .attr("font-size","12px") 
+      .attr("fill", "#000");
+  } 
+        d3.json('cityCount.json').then(function (data) {
+          linechart(data);});
+  }
+
   draw()
   {
-    // var imag = d3.select('#img').append('svg').append('svg:image')
-    //              .attr('xlink:href', _self.image)
-    //              .attr('height','71')
-    //              .attr('width','121');
     d3.select("#fordisp").attr("class","view");
     d3.select("#south").select("svg").remove();
     var _self = this;
@@ -496,19 +704,21 @@ _self.info="Delta Air Lines, Inc., often referred to simply as Delta, is a major
           d3.selectAll('.legend')
           .style('opacity', 1);
       });
-     
+      var path = "M59.79,12.92C62.42,9.4,64,5.75,64,3.15a3.62,3.62,0,0,0-.49-2,1.6,1.6,0,0,0-.29-.37,1.68,1.68,0,0,0-.34-.27,3.56,3.56,0,0,0-2-.51c-2.6,0-6.25,1.58-9.77,4.21-2.84,2.13-5.69,5.12-9.62,9.27L39.34,15.7l-7.62-2.28,0,0a1.71,1.71,0,0,0,0-2.41L30.36,9.61a1.71,1.71,0,0,0-1.21-.5,1.68,1.68,0,0,0-1.21.5l-2.06,2.06-1.09-.33a1.71,1.71,0,0,0-.14-2.25L23.27,7.7a1.71,1.71,0,0,0-1.21-.5,1.67,1.67,0,0,0-1.2.5L19,9.59,11.21,7.27a1.94,1.94,0,0,0-.55-.08,2.05,2.05,0,0,0-1.43.58L6.5,10.5A1.61,1.61,0,0,0,6,11.62,1.56,1.56,0,0,0,6.85,13l16.3,9.11a2.84,2.84,0,0,1,.4.3l4.65,4.65C23.85,31.66,20,36.09,17,40L16.15,41,3.54,39.86H3.32a2.33,2.33,0,0,0-1.56.65L.49,41.76A1.58,1.58,0,0,0,0,42.89a1.55,1.55,0,0,0,.92,1.43l8.87,4.21a2.07,2.07,0,0,1,.34.24l.74.73a5.38,5.38,0,0,0-.35,1.71,2.24,2.24,0,0,0,.62,1.63l0,0h0a2.25,2.25,0,0,0,1.63.61,5.43,5.43,0,0,0,1.69-.35l.75.75a2,2,0,0,1,.23.33l4.2,8.85a1.57,1.57,0,0,0,1.41.93h0a1.58,1.58,0,0,0,1.12-.47l1.3-1.31a2.32,2.32,0,0,0,.62-1.56c0-.07,0-.13,0-.16L23,47.85,24,47c3.86-3,8.3-6.9,12.87-11.24l4.65,4.66a2.49,2.49,0,0,1,.3.4L51,57.13a1.58,1.58,0,0,0,2.54.37l2.74-2.74a2.08,2.08,0,0,0,.56-1.43,2,2,0,0,0-.07-.54L54.41,45l1.89-1.89a1.71,1.71,0,0,0,0-2.41l-1.39-1.38a1.71,1.71,0,0,0-2.25-.14l-.32-1.09,2.06-2.06a1.72,1.72,0,0,0,.5-1.21,1.69,1.69,0,0,0-.5-1.2L53,32.27a1.71,1.71,0,0,0-2.42,0h0L48.3,24.65l2.25-2.14C54.68,18.59,57.67,15.76,59.79,12.92Z"
       /* Add circles in the line */
       lines.selectAll("circle-group")
       .data(data).enter()
       .append("g")
-      .style("fill", "#FFF")//(d, i) => color(i))
-      .style("stroke", function(d, i:any) { return color(i); })
+      // .style("fill", "#FFF")//(d, i) => color(i))
+      .style("fill", function(d, i:any) { return color(i); })
       .selectAll("circle")
       .data(d => d["values"])
       .enter()
       .append("g")
+      // .append("path")
+      // .attr("d",path)
       .attr("class", "circle")
-      .attr("r", 4) 
+      // .attr("r", 4) 
       .on("mouseover", function(d) {
           d3.select(this)     
           .style("cursor", "pointer")
@@ -526,22 +736,33 @@ _self.info="Delta Air Lines, Inc., often referred to simply as Delta, is a major
           .duration(duration)
           .selectAll(".text").remove();
       })
-      .append("circle")
-      .attr("cx", d => xScale(d["year"]))
-      .attr("cy", d => yScale(d["arrdelay"]))
-      .attr("r", circleRadius)
+      .append("svg")
+      
+      .attr("x", d => xScale(d["year"]))
+      .attr("y", d => yScale(d["arrdelay"])-5)
+      // .attr("width","80")
+      // .attr("height","80")
+      .append("path")
+      .attr("d",path)
+      .attr("transform","scale(0.2)")
+      // .append("circle")
+      // .attr("x", d => xScale(d["year"]))
+      // .attr("y", d => yScale(d["arrdelay"]))
+      // .attr("r", circleRadius)
       .style('opacity', circleOpacity)
       .on("mouseover", function(d) {
           d3.select(this)
               .transition()
               .duration(duration)
-              .attr("r", circleRadiusHover);
+              // .attr("r", circleRadiusHover);
+              .attr("transform","scale(0.7)");
           })
       .on("mouseout", function(d) {
           d3.select(this) 
               .transition()
               .duration(duration)
-              .attr("r", circleRadius);  
+              .attr("transform","scale(0.2)");
+              // .attr("r", circleRadius);  
           });
       /* Add Axis into SVG */
       var xAxis = d3.axisBottom(xScale).ticks(tic);
