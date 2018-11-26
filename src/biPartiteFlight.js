@@ -18,8 +18,11 @@
 	
 	var b=30, bb=150, height=600, buffMargin=1, minHeight=14;
 	var c1=[-190, 40, 10], c2=[-90, 100, 10], c3=[-55, 135, 10], c4=[-10,180,25];   //Column positions of labels.
-	//var colors =["#3366CC", "#DC3912",  "#FF9900","#109618", "#990099", "#0099C6", "#FF6699"];
+	
 	var colors =["#08088A", "#0040FF","#0080FF", "#00BFFF", "#58ACFA", "#00FFFF", "#A9D0F5"];
+	// var colors=["#FFC0CB","#DB7093","#FF69B4","#FF1493","#DB7093","#C71585","#DDA0DD"];
+	// var colors=["#7FFFD4","#66CDAA","#40E0D0","#20B2AA","#008080","#AFEEEE","#87CEFA"];
+	// var colors=["#FFA07A","#FA8072","#F08080","#DC143C","#B22222","#FF0000","#800000"];
 	var highlight = "#FF0101";
 	
 	/** function for formatting the tooltip  **/
