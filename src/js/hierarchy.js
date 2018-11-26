@@ -35,7 +35,7 @@ class Hierarchy {
 
         let colorScale = d3.scaleOrdinal()
             .domain(["Inbound", "Outbound", "Inbound & Outbound"])
-            .range(["#ffb51d", "#68a064", "#dc6c6f"])
+            .range(["green", "red", "rgb(91, 91, 172);"])
         let legendOrdinal = d3.legendColor()
             .shape("path", d3.symbol().type(d3.symbolSquare).size(42)())
             .shapePadding(7)
