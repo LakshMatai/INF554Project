@@ -6,12 +6,14 @@ import { USMapFlightsComponent } from './us-map-flights/us-map-flights.component
 import { CarrierStatsComponent } from './carrier-stats/carrier-stats.component';
 import {RouterModule, Routes} from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
+import { PublicationsComponent } from './publications/publications.component';
 
 const appRoutes:Routes=[
   {path:'us-map-flights',component:USMapFlightsComponent},
   {path:'carrier-stats',component:CarrierStatsComponent},
   {path:'home-page',component:HomePageComponent},
-  {path:'',redirectTo:'home-page',pathMatch:'full'}
+  {path:'',redirectTo:'home-page',pathMatch:'full'},
+  {path:'publications',component:PublicationsComponent}
 
 ]
 
@@ -20,7 +22,8 @@ const appRoutes:Routes=[
     AppComponent,
     USMapFlightsComponent,
     CarrierStatsComponent,
-    HomePageComponent
+    HomePageComponent,
+    PublicationsComponent
   ],
   imports: [
     BrowserModule,

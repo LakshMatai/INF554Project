@@ -684,7 +684,7 @@ d3.select("#sortDesc")
   
       dataset = slicedDataset
       //slicedDataset = slicedDataset.sort(function (a, b) { return d3.ascending(a.AirLine, b.AirLine); });
-      var bars = svg.selectAll(".bar").remove().exit().data(slicedDataset,function(d:any){
+      var bars = svg.selectAll(".bar").data(slicedDataset,function(d:any){
         return d.Delay;
       })
     
