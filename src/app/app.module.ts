@@ -8,6 +8,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { BipartiteComponent } from './bipartite/bipartite.component';
 import { PublicationsComponent } from './publications/publications.component';
+import { AirportConnectivityComponent } from './airport-connectivity/airport-connectivity.component';
 
 const appRoutes:Routes=[
   {path:'us-map-flights',component:USMapFlightsComponent},
@@ -26,7 +27,8 @@ const appRoutes:Routes=[
     CarrierStatsComponent,
     HomePageComponent,
     BipartiteComponent,
-    PublicationsComponent
+    PublicationsComponent,
+    AirportConnectivityComponent
   ],
   imports: [
     BrowserModule,

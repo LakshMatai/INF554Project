@@ -578,7 +578,7 @@ _self.info="Delta Air Lines, Inc., often referred to simply as Delta, is a major
       .attr("font-size","12px") 
       .attr("fill", "#000");
   } 
-        d3.json('cityCount.json').then(function (data) {
+        d3.json('data/cityCount.json').then(function (data) {
           linechart(data);});
   }
 
@@ -777,18 +777,21 @@ _self.info="Delta Air Lines, Inc., often referred to simply as Delta, is a major
        .text("Year")
        .attr("text-anchor", "middle") 
        .attr("x", width/2)
-      .attr("y", 40) 
-      ;
+      .attr("y", 40)
+      .attr("fill","black")
+      .attr("font-size","12px");
   
       svg.append("g")
       .attr("class", "yAxis")
       .call(yAxis)
       .append('text')
-      .attr("x", -width/4 )
-      .attr("y", -35)
+      .attr("x", -width/7 )
+      .attr("y", -30)
       .attr("transform", "rotate(-90)")
       //.attr("fill", "#000")
-      .text("Arrival Delay(minutes)");
+      .text("Arrival Delay(minutes)")
+      .attr("fill","black")
+      .attr("font-size","12px");
   } 
 
         d3.json(_self.file_name).then(function (data) {
