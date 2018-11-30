@@ -1,4 +1,22 @@
-# FlightTime
+# INF554 Project
+# Airline On-time Performance
+
+## PROJECT SUMMARY
+
+
+
+### PROJECT INFORMATION
+
+- Project title: <Airline On-Time Performance.>
+- Group name: <Aesthetics>
+- Team names: [<Laksh Matai> (<lmatai>), <Ashwini Giri>(<agiri>), <Pallavi Yenigalla>(<yenigall>)]
+
+### PROJECT ARTIFACTS
+
+- [Demonstration URL](<demo-url>)
+- [Presentation PDF](<presentation-pdf-url>) and [transcript](<presentation-transcript-md-url>)
+- [Article](<article-pdf-url>) and [Overleaf URL](<overleaf-article-url>)
+- [YouTube video](<youtube-video-url>)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
