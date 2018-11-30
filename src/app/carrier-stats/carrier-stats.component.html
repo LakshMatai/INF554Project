@@ -1,11 +1,12 @@
 <hr>
 <div class="container">
   <h4 align="center">Busiest Airports in the United tates</h4>
-  <p align="center">This chart shows busy airports categorized according to the number of flights. </p>
+  <p align="center" style="color:grey;">The line chart represents busy airports which is determined by the count of inbound and outbound flights of various cities in the US.   </p>
     <svg id="extra" width = "1200" height = "500"></svg>
     
     <br><br>
     <h4 align="center">Choose a carrier to view it's delay</h4>
+    <p align="center" style="color:grey;">Represents the average arrival and departure delay of the selected carrier in minutes along with a card that contains information about carrier type.</p>
     <br>
     <p align="center">
       <button type="button" class="btn btn-outline-secondary btn-xs" (click)=endeavor()>Endeavor Airlines</button>
@@ -39,7 +40,7 @@
 
   <br>
   <div id="fordisp" class="blockview">
-  <h1 align="center" style="background-color: antiquewhite;text-align: center;font-family: arial;font-size: 30px;color:blue">Average arrival and departure delay for {{airl_name}}</h1>
+  <!-- <h1 align="center" style="background-color: antiquewhite;text-align: center;font-family: arial;font-size: 30px;color:blue">Average arrival and departure delay for {{airl_name}}</h1> -->
   <div>
       <p align="center" class = "lead" style="background-color: aliceblue;"><font size="3">Please Click on the line carefully and up to the point to select it.</font></p>
   </div>
