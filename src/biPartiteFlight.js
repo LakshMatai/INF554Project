@@ -20,9 +20,6 @@
 	var c1=[-190, 40, 10], c2=[-90, 100, 10], c3=[-55, 135, 10], c4=[-10,180,25];   //Column positions of labels.
 	
 	var colors =["#08088A", "#0040FF","#0080FF", "#00BFFF", "#58ACFA", "#00FFFF", "#A9D0F5"];
-	// var colors=["#FFC0CB","#DB7093","#FF69B4","#FF1493","#DB7093","#C71585","#DDA0DD"];
-	// var colors=["#7FFFD4","#66CDAA","#40E0D0","#20B2AA","#008080","#AFEEEE","#87CEFA"];
-	// var colors=["#FFA07A","#FA8072","#F08080","#DC143C","#B22222","#FF0000","#800000"];
 	var highlight = "#FF0101";
 	
 	/** function for formatting the tooltip  **/
@@ -30,29 +27,6 @@
     	return "<strong>" + d.long_name + "</strong><br><b>Total Flights:</b><span>" + d.tf + "</span>";
     };
 
-	
-	/**
-	 * Generate/Arrange data for each part.
-	 * 1st part is Performance vs Airline
-	 * 2nd part is Performance vs Airport
-	 * 
-	 * Parameter getColumn is the column name in the raw data
-	 * Parameter getValue is the value for the given column.
-	 * These parameters are passed when user hovers on a specific key.  
-	 * i.e.  AA, only select data with airport=AA
-	 * 
-	 * Generate a dictionary object with the following properties:
-	 * keys - array for 2 keys
-	 * 			i.e. for performance factor: late, nas, aircraft, weather, etc
-	 * 			i.e. for airline:  AA, DL, WN, UA
-	 *          i.e. for airport:  ATL, LAX... etc
-	 * data - two-dimensional array where the first array has the lenght of the second key or airport/airline
-	 * 			and the second array has the length of the first key or performance.
-	 *         i.e. [0,0] refers to the value of the first performance for the corresponding first airline for first part
-	 * 				[0,1] refers to the value of the first performance for the second airline
-	 *              [1,0] refers to the value of the first airport for the corresponding first performance
-	 * fields - is a key-value pair.  Keys as total_flights and long_names 
-	 */
 	function partData(groupedData, idNum, keys, getColumn, getValue) {
 		var sData={};
 		sData.keys = keys;
@@ -263,8 +237,11 @@
 	 */
 	function drawPart(data, id, p){
 		
-		d3.select("#"+id).append("g").attr("class","part"+p)
-			.attr("transform","translate("+( p*(bb+b))+",0)");
+		d3.select("#"+id)
+		.attr("preserveAspectRatio", "xMinYMin meet")
+		.attr("viewBox","0 0 800 "+height)
+		.append("g").attr("class","part"+p)
+		.attr("transform","translate("+( p*(bb+b))+",0)");
 		d3.select("#"+id).select(".part"+p).append("g").attr("class","subbars");
 		d3.select("#"+id).select(".part"+p).append("g").attr("class","mainbars");
 		
