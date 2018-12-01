@@ -18,7 +18,7 @@
 - Pallavi: Proportional symbol map of airport connectivity and inbound and outbound airport connections.
 
 ## Slide 7 Who did what
-- Ashwini: Bipartite, Line chart for Carrier delay.
+- Ashwini: Bipartite chart, Line chart for Carrier delay, Carrier-delay component, video for project.
 
 ## Slide 8 Who did what
 - Laksh: Home page, navigation, dot map for that populates bar chart for departure and arrival delay.
@@ -64,4 +64,4 @@ the data just by a glance through the visualizations.
 Many of the flight booking websites provide information on carriers, price and time. Our project is to add a new parameter of delay associated so that the viewers can make a more informed decision on his travel. We created a website that contains visual representations of various graphical forms such as maps, bar, donut etc. Each of the charts represent information such as delays, airport connections between cities, daily statistics of flight delay and also the cause of delays.
  
 ## Slide 19 Questions?
- 
+ - This slide was created to welcome any questions from our audience and professor. And a thankyou note for giving us an opportunity to make this project
