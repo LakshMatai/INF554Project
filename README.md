@@ -125,6 +125,12 @@ All the charts are created using D3.js library. Below are some of the D3 feature
          
 2. ColorSchemes: Used ordinal and sequential color schemes for the project. Mostly focus on blue color so that we can reach color blind audience as well
 
+3. Responsiveness: Used attributes 'ViewBox' and 'PreserveAspectRatio' to create responsiveness in the project.
+
+4. Legends and axis: created axis for all charts using axisBottom() and axisLeft() funtions from D3. All the charts have legends for it.
+
+5. Interactivity: The charts are interactive on hover and click. Hovering provides details regarding the event and click adds dyanmic functionality.
+
 #### Deployment
 
 The web page is deployed on USC SCF. Used FileZilla to transfer files from local machine to remote server.
@@ -134,4 +140,8 @@ Follwing are the commands I followed to connect to the server.
 $ cd public_html
 $ project # automatically mapped by Apache`
 
+Build the project using command `ng build --prod --base-href "/~agiri/project/"`
+Then push all the files created in dist folder to project folder on scf account.
+
+To see project [click here](<http://www-scf.usc.edu/~agiri/project/>)
 
