@@ -56,4 +56,91 @@ D3.js, Angular framework, CSS, HTML, Javascript, particles.js, python.
 ### Usefulness
 Use of past data to analyze on-time performance of domestic airline carriers and plot interactive visualization which will help general public as well as Aviation industry to plan their strategies. Aviation Industry can see the analysis and take measures so that they can improve their services for customer satisfaction and company growth. Customer Satisfaction: Customers can see their choices before hand and choose wisely the carrier and time of travel which will improve consumer
 
+## Development
+
+The development of this assignment is done using HTML, CSS, JavaScript, node.js, npm, angular and D3.js library.
+
+### Set-Up
+  
+Following are the environments used for set-up and development.
+
+### Node-Modules
+
+Downloaded all the node-Modules via command line `install` statements. From all the node modules utilized bootstrap, pooper, d3 and jquery node-modules instead of directly importing through cdn.
+For this assignment, instead of using the CDN link of D3 used te D3 provided in the node modules.
+
+#### Visual-Studio
+
+Used visual studio IDE for programming the assignment and Angular CLI.
+
+#### GitHub
+
+Used Incremental commits. Updated Github README multiple times and commited changes in increments.
+
+#### Angular
+
+First installed Angular Cli on local machine.
+Then clone the git repository to local system. Everything is done in this git repository.
+Following commands were used to ingore the node_modules while commiting the repository to the project. It also renders an angular client.
+Start a server to view your web page. Since we are using angular, the web page reflects changes in realtime.
+
+`$ cd project-pallaviyenigalla/
+$ ng new project-pallaviyenigalla
+$ cd project-pallavi/
+$ mv * ../
+$ mv .gitignore .editorconfig .angular-cli.json ../
+$ cd ..;
+$ git add .gitignore
+$ ng serve --open`
+
+To install the node_modules used following commands:
+`$ npm install bootstrap jquery popper.js d3 @types/d3 --save`
+
+To create component for each type of chart used the following command:
+`$ ng generate component carrier-stats
+$ ng generate component USconnectivity
+$ ng generate component bipartite
+$ ng generate component  homepage
+$ ng generate component USflights'
+
+##### Local Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+##### Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+##### Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+##### Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+##### Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+##### Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+##### Web-Page
+
+Developed all the web pages in Angular environment. created components through command line for each chart type.
+The html code for the home page is written in the main anular component html file. The web page design of each chart is written in the specific component html file.
+The javascript d3 code to create the visualization is written in the tpescript files of each component.
+
+### Deployment
+
+The web page is deployed on USC SCF. Used FileZilla to transfer files from local machine to remote server.
+Follwing are the commands I followed to connect to the server.
+
+`$ ssh agiri@aludra.usc.edu
+$ cd public_html
+$ project # automatically mapped by Apache
+
+Deployed the code using `ng build` command. `ng build --prod --base-href "/~yenigall/agiri/"`
 
