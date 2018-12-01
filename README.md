@@ -22,7 +22,7 @@ We portray the story of a traveller and his journey from home to destination thr
 
 - [Demonstration URL](<http://www-scf.usc.edu/~agiri/project/>)
 - [Presentation PDF](<article.pdf>) and [transcript](transcript.md)
-- [Article](article-pdf-url) and [Overleaf URL](<https://www.overleaf.com/3368746295nzznwtsvvycw>)
+- [Article](article.pdf) and [Overleaf URL](<https://www.overleaf.com/3368746295nzznwtsvvycw>)
 - [YouTube video](<https://www.youtube.com/watch?v=ljFurMapzwQ&feature=youtu.be>)
 
 ### Visualizations
