@@ -59,8 +59,8 @@ Use of past data to analyze on-time performance of domestic airline carriers and
 The following visualizations have been created for on-time airline performance
 -US flights dot map that populates a bar chart which displays aggregated value of departure delay of all carriers of selected city. The delay in the bar chart based on carriers can be sorted according to ascending, descending or alphabetical order.
 -Airport Connectivity: Airports in all cities of US are represented as a proportional symbol map determined by the size of the airport. It displays all the connecting airports from the user selected airport.
-- Carrier Statistics represented by a line chart which shows busy airports which is determined by the count of inbound and outbound flights of various cities in the US.
-- Carrier Information chart represents the average arrival and departure delay of the selected carrier in minutes along with a card that contains information about carrier type.
+-Carrier Statistics represented by a line chart which shows busy airports which is determined by the count of inbound and outbound flights of various cities in the US.
+-Carrier Information chart represents the average arrival and departure delay of the selected carrier in minutes along with a card that contains information about carrier type.
 -US on-time flight performance visualized through a bipartite graph. The left side represents two-way verticle bipartite matchings between cause of delay and flight carriers. The right side represents cause of delay Vs major aiports.
 
 ## Development
