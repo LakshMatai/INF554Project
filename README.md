@@ -20,7 +20,7 @@ This is a visualization for US flights on-time performance over the years 2000-2
 ### PROJECT ARTIFACTS
 
 - [Demonstration URL](<http://www-scf.usc.edu/~agiri/project/>)
-- [Presentation PDF](<article.pdf>) and [transcript](<presentation-transcript-md-url>)
+- [Presentation PDF](<article.pdf>) and [transcript](transcript.md)
 - [Article](article-pdf-url) and [Overleaf URL](<https://www.overleaf.com/3368746295nzznwtsvvycw>)
 - [YouTube video](<https://www.youtube.com/watch?v=ljFurMapzwQ&feature=youtu.be>)
 
