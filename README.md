@@ -13,12 +13,11 @@ This is a visualization for US flights on-time performance over the years 2000-2
 
 ### PROJECT ARTIFACTS
 
-- [Demonstration URL](<demo-url>)
+- [Demonstration URL](<http://www-scf.usc.edu/~agiri/project/>)
 - [Presentation PDF](<presentation-pdf-url>) and [transcript](<presentation-transcript-md-url>)
-- [Article](<article-pdf-url>) and [Overleaf URL](<overleaf-article-url>)
+- [Article](<article-pdf-url>) and [Overleaf URL](<https://www.overleaf.com/3368746295nzznwtsvvycw>)
 - [YouTube video](<https://www.youtube.com/watch?v=ljFurMapzwQ&feature=youtu.be>)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
 ### Audience
 According to our research and data collected we found that delayed flights mostly affect business officials whose major concern would be making it to meetings and conferences on time which plays a significant role in their companies business dealing. Adding to this, it would be of great help to passengers with multiple connecting flights such that they can have an overall timesense in order to cordinate their travel. The website would be extremely useful to individuals who can't tolerate latency in departure and arrival of flights.
@@ -54,7 +53,15 @@ We used interactive geo maps which will portray connectivity and performance for
 D3.js, Angular framework, CSS, HTML, Javascript, particles.js, python.
 
 ### Usefulness
-Use of past data to analyze on-time performance of domestic airline carriers and plot interactive visualization which will help general public as well as Aviation industry to plan their strategies. Aviation Industry can see the analysis and take measures so that they can improve their services for customer satisfaction and company growth. Customer Satisfaction: Customers can see their choices before hand and choose wisely the carrier and time of travel which will improve consumer
+Use of past data to analyze on-time performance of domestic airline carriers and plot interactive visualization which will help general public as well as Aviation industry to plan their strategies. Aviation Industry can see the analysis and take measures so that they can improve their services for customer satisfaction and company growth. Customer Satisfaction: Customers can see their choices before hand and choose wisely the carrier and time of travel which will improve consumer.
+
+### Visualizations
+The following visualizations have been created for on-time airline performance
+-US flights dot map that populates a bar chart which displays aggregated value of departure delay of all carriers of selected city. The delay in the bar chart based on carriers can be sorted according to ascending, descending or alphabetical order.
+-Airport Connectivity: Airports in all cities of US are represented as a proportional symbol map determined by the size of the airport. It displays all the connecting airports from the user selected airport.
+- Carrier Statistics represented by a line chart which shows busy airports which is determined by the count of inbound and outbound flights of various cities in the US.
+- Carrier Information chart represents the average arrival and departure delay of the selected carrier in minutes along with a card that contains information about carrier type.
+-US on-time flight performance visualized through a bipartite graph. The left side represents two-way verticle bipartite matchings between cause of delay and flight carriers. The right side represents cause of delay Vs major aiports.
 
 ## Development
 
@@ -133,7 +140,7 @@ Developed all the web pages in Angular environment. created components through c
 The html code for the home page is written in the main anular component html file. The web page design of each chart is written in the specific component html file.
 The javascript d3 code to create the visualization is written in the tpescript files of each component.
 
-### Deployment
+#### Deployment
 
 The web page is deployed on USC SCF. Used FileZilla to transfer files from local machine to remote server.
 Follwing are the commands I followed to connect to the server.
@@ -142,5 +149,4 @@ Follwing are the commands I followed to connect to the server.
 $ cd public_html
 $ project # automatically mapped by Apache`
 
-Deployed the code using `ng build` command. `ng build --prod --base-href "/~yenigall/agiri/"`
 
