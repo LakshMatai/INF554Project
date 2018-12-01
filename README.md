@@ -140,7 +140,7 @@ Follwing are the commands I followed to connect to the server.
 
 `$ ssh agiri@aludra.usc.edu
 $ cd public_html
-$ project # automatically mapped by Apache
+$ project # automatically mapped by Apache`
 
 Deployed the code using `ng build` command. `ng build --prod --base-href "/~yenigall/agiri/"`
 
