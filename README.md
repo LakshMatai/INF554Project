@@ -1,10 +1,4 @@
 # INF554 Project
-
-Important Note: We started development of this project in a private repository. We have all the code for this project in our repository. To see code please [click here](<https://github.com/LakshMatai/INF554Project>). All the incremental commits are present on our private repository.
-
-We have also pushed everything on this repository too. Use the folder [Final-End-Term submission] for submitted files.
-The folder [Mid-Term submission] contains all the files that were submitted for mid-term report.
-
 # Airline On-time Performance
 
 ## PROJECT SUMMARY
