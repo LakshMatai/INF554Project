@@ -41,6 +41,8 @@ The development of this assignment is done using HTML, CSS, JavaScript, TypeScri
   
 Following are the environments used for set-up and development.
 
+Replace particles.js file in node_modules/particlesjs/dist/particles.js with particles.js file in the main project folder. particles.js in npm has some bug because of which it is not working properly.
+
 ### Node-Modules
 
 Downloaded all the node-Modules via command line `install` statements. From all the node modules utilized bootstrap, pooper, d3 and jquery node-modules instead of directly importing through cdn.
