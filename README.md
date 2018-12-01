@@ -7,8 +7,8 @@ This is a visualization for US flights on-time performance over the years 2000-2
 
 ### PROJECT INFORMATION
 
-- Project title: <Airline On-Time Performance.>
-- Group name: <Aesthetics>
+- Project title: US Flights on-time Performance<Airline On-Time Performance.>
+- Group name: Aesthetics
 - Team names: Laksh Matai (lmatai@usc.edu), Ashwini Giri (agiri@usc.edu), Pallavi Yenigalla (yenigall@usc.edu)
 
 ### PROJECT ARTIFACTS
