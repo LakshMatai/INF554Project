@@ -1,4 +1,10 @@
 # INF554 Project
+
+Important Note: We started development of this project in a private repository. We have all the code for this project in our repository. To see code please [click here](<https://github.com/LakshMatai/INF554Project>). All the incremental commits are present on our private repository.
+
+We have also pushed everything on this repository too. Use the folder [Final-End-Term submission] for submitted files.
+The folder [Mid-Term submission] contains all the files that were submitted for mid-term report.
+
 # Airline On-time Performance
 
 ## PROJECT SUMMARY
@@ -65,7 +71,7 @@ The following visualizations have been created for on-time airline performance
 
 ## Development
 
-The development of this assignment is done using HTML, CSS, JavaScript, node.js, npm, angular and D3.js library.
+The development of this assignment is done using HTML, CSS, JavaScript, TypeScript, node.js, npm, angular and D3.js and particles.js library.
 
 ### Set-Up
   
@@ -75,6 +81,12 @@ Following are the environments used for set-up and development.
 
 Downloaded all the node-Modules via command line `install` statements. From all the node modules utilized bootstrap, pooper, d3 and jquery node-modules instead of directly importing through cdn.
 For this assignment, instead of using the CDN link of D3 used te D3 provided in the node modules.
+
+We have used an extra particles.js library in our project. In case if you download the project code, make sure to install particles.js using command `npm install particles.js --save`
+
+For plotting maps and citites on maps we have used topojson, hence you also need to install topojson too.
+Use command `npm install topojson`
+
 
 #### Visual-Studio
 
@@ -105,10 +117,11 @@ To install the node_modules used following commands:
 
 To create component for each type of chart used the following command:
 `$ ng generate component carrier-stats
-$ ng generate component USconnectivity
+$ ng generate component airport-connectivity
 $ ng generate component bipartite
-$ ng generate component  homepage
-$ ng generate component USflights'
+$ ng generate component  home-page
+$ ng generate component us-map-flights
+$ ng generate component publications`
 
 ##### Local Development server
 
@@ -137,8 +150,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ##### Web-Page
 
 Developed all the web pages in Angular environment. created components through command line for each chart type.
-The html code for the home page is written in the main anular component html file. The web page design of each chart is written in the specific component html file.
+The html code for the home page is written in the main angular component.html file. The web page design of each chart is written in the specific component html file.
 The javascript d3 code to create the visualization is written in the tpescript files of each component.
+
+All the charts are created using D3.js library. Below are some of the D3 features used.
+
+1. Maps: Created US map using geoPath() and geoAlbersUsa() project to show only US map
+         i. Dot Map
+         ii. Proportional Symbol Map
 
 #### Deployment
 
